@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html"/>
     <title>王从燕</title>
 </head>
-<iframe src="web-mobile/index.html" width="480" height="640" id="iframepage" scrolling="no" onload="changeFrameHeight()" frameborder="0"></iframe>
+<iframe src="web-mobile/index.html" width="getWidth()" height="getHeight()" id="iframepage" scrolling="no" onload="changeFrameHeight()" frameborder="0"></iframe>
 <script  type="text/javascript">
 function changeFrameHeight(){
     var ifm= document.getElementById("iframepage"); 
@@ -15,6 +15,39 @@ function changeFrameHeight(){
 }
 
 function checkPlatform(){
+	var  isPhone = isPhone();
+	if(!isPhone)
+	{
+	 var ifm= document.getElementById("iframepage"); 
+     ifm.height= 640 ;
+     ifm.width = 480;
+	}
+}
+
+function getHeight()
+{
+	var  isPhone = isPhone();
+
+	if(isPhone)
+	{
+   		return 960;
+	}
+	return 640 ;
+}
+
+function getWidth()
+{
+	var  isPhone = isPhone();
+	if(isPhone)
+	{
+   		return 640;
+	}
+	return 480 ;
+}
+
+
+function isPhone()
+{
 	var  isPhone = false;
 	if(/android/i.test(navigator.userAgent)){
 		// document.write("This is Android'browser.");//这是Android平台下浏览器
@@ -23,12 +56,6 @@ function checkPlatform(){
 	if(/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)){
 		// document.write("This is iOS'browser.");//这是iOS平台下浏览器
 		isPhone = true ;
-	}
-	if(!isPhone)
-	{
-	 var ifm= document.getElementById("iframepage"); 
-     ifm.height= 640 ;
-     ifm.width = 480;
 	}
 	// if(/Linux/i.test(navigator.userAgent)){
 		
@@ -39,6 +66,7 @@ function checkPlatform(){
 	// if(/MicroMessenger/i.test(navigator.userAgent)){
 	// 	document.write("This is MicroMessenger'browser.");//这是微信平台下浏览器
 	// }
+	return isPhone ;
 }
 
 
