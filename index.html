@@ -15,7 +15,7 @@ function changeFrameHeight(){
 }
 
 function checkPlatform(){
-	var  isPhone = isPhone();
+	var  isPhone = isPhonePlatform();
 	if(!isPhone)
 	{
 	 var ifm= document.getElementById("iframepage"); 
@@ -26,7 +26,7 @@ function checkPlatform(){
 
 function getHeight()
 {
-	var  isPhone = isPhone();
+	var  isPhone = isPhonePlatform();
 
 	if(isPhone)
 	{
@@ -37,7 +37,7 @@ function getHeight()
 
 function getWidth()
 {
-	var  isPhone = isPhone();
+	var  isPhone = isPhonePlatform();
 	if(isPhone)
 	{
    		return 640;
@@ -46,7 +46,7 @@ function getWidth()
 }
 
 
-function isPhone()
+function isPhonePlatform()
 {
 	var  isPhone = false;
 	if(/android/i.test(navigator.userAgent)){
